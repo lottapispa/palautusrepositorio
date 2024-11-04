@@ -25,15 +25,19 @@ class StatisticsService:
 
         return list(players_of_team)
 
-    def top(self, how_many, SortBy=1):
+    def top(self, how_many, sort_by = SortBy.POINTS):
         # metodin käyttämä apufufunktio voidaan määritellä näin
-        def sort_by_points(player):
-            return player.points
-
+        if sort_by == SortBy.GOALS:
+            sort_key = lambda player: player.goals
+        elif sort_by == SortBy.ASSISTS:
+            sort_key = lambda player: player.assists
+        else:
+            sort_key = lambda player: player.points
+    
         sorted_players = sorted(
             self._players,
             reverse=True,
-            key=sort_by_points
+            key=sort_key
         )
 
         result = []
