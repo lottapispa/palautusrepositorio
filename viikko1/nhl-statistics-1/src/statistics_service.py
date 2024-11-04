@@ -25,7 +25,7 @@ class StatisticsService:
 
         return list(players_of_team)
 
-    def top(self, how_many, sort_by = 1):
+    def top(self, how_many, SortBy=1):
         # metodin käyttämä apufufunktio voidaan määritellä näin
         def sort_by_points(player):
             return player.points

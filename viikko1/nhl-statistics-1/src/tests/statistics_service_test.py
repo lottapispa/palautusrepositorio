@@ -19,12 +19,18 @@ class TestStatisticsService(unittest.TestCase):
             PlayerReaderStub()
         )
 
+    def test_search(self):
+        self.assertEqual(self.stats.search("Kurri"), Player("Kurri",   "EDM", 37, 53))
+
+    def test_search_no_return(self):
+        self.assertEqual(self.stats.search("Kuri"), None)
+    
     def test_team(self):
-        self.assertEqual(self.stats.team("EDM"), ["Semenko EDM 4 + 12 = 16", Player("Kurri", "EDM", 37, 53), Player("Gretzky", "EDM", 35, 89)])
-        #self.assertEqual(self.stats.team("EDM"), [Player("Semenko", "EDM", 4, 12), Player("Kurri", "EDM", 37, 53), Player("Gretzky", "EDM", 35, 89)])
+        self.assertEqual(self.stats.team("EDM"), [Player("Semenko", "EDM", 4, 12), Player("Kurri", "EDM", 37, 53), Player("Gretzky", "EDM", 35, 89)])
 
     def test_top(self):
-        #self.assertEqual(self.stats.top(1), [Player("Gretzky", "EDM", 35, 89)])
+        self.assertEqual(self.stats.top(1), [Player("Gretzky", "EDM", 35, 89)])
         self.assertEqual(self.stats.top(1, SortBy.POINTS), [Player("Gretzky", "EDM", 35, 89)])
-        #self.assertEqual(self.stats.top(1), ["Gretzky EDM 35 + 89 = 124"])
-        #self.assertEqual(self.stats.top(2), [Player("Gretzky", "EDM", 35, 89), Player("Lemieux", "PIT", 45, 54)])
+        self.assertEqual(self.stats.top(1, SortBy.POINTS), ["Gretzky EDM 35 + 89 = 124"])
+        self.assertEqual(self.stats.top(2), [Player("Gretzky", "EDM", 35, 89), Player("Lemieux", "PIT", 45, 54)])
+        self.assertEqual(self.stats.top(1, SortBy.GOALS), [Player("Lemieux", "PIT", 45, 54)])
