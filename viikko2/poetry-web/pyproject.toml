@@ -1,11 +1,15 @@
 [tool.poetry]
-name = "project-reader"
+name = "poetry-web"
 version = "0.1.0"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["lottapispa <lotta.pispa@helsinki.fi>"]
+readme = "README.md"
+packages = [{include = "poetry_web"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+flask = "^3.0.3"
+pytest = "^8.3.3"
 toml = "^0.10.2"
 
 
