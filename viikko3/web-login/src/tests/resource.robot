@@ -8,15 +8,15 @@ ${DELAY}         0.5 seconds
 ${HOME_URL}      http://${SERVER}
 ${LOGIN_URL}     http://${SERVER}/login
 ${REGISTER_URL}  http://${SERVER}/register
-${BROWSER}       chrome
+${BROWSER}       firefox
 ${HEADLESS}      false
 
 *** Keywords ***
 Open And Configure Browser
-    IF  $BROWSER == 'chrome'
-        ${options}  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys
-    ELSE IF  $BROWSER == 'firefox'
+    IF  $BROWSER == 'firefox'
         ${options}  Evaluate  sys.modules['selenium.webdriver'].FirefoxOptions()  sys
+    ELSE IF  $BROWSER == 'chrome'
+        ${options}  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys
     END
     IF  $HEADLESS == 'true'
         Set Selenium Speed  0
@@ -34,4 +34,11 @@ Main Page Should Be Open
 
 Go To Login Page
     Go To  ${LOGIN_URL}
+
+Go To Starting Page
+    Go To  ${HOME_URL}
+
+Register Page Should Be Open
+    Title Should Be  Register
+
 

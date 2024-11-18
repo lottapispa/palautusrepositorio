@@ -1,0 +1,8 @@
+__pycache__/
+.pytest_cache
+*.png
+*.log
+log.html
+report.html
+output.xml
+
