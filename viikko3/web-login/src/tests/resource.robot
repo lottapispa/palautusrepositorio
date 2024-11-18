@@ -8,6 +8,7 @@ ${DELAY}         0.5 seconds
 ${HOME_URL}      http://${SERVER}
 ${LOGIN_URL}     http://${SERVER}/login
 ${REGISTER_URL}  http://${SERVER}/register
+${WELCOME_URL}   http://${SERVER}/welcome
 ${BROWSER}       firefox
 ${HEADLESS}      false
 
@@ -43,6 +44,9 @@ Go To Starting Page
 
 Go To Register Page
     Go To  ${REGISTER_URL}
+
+Go To Welcome Page
+    Go To ${WELCOME_URL}
 
 Register Page Should Be Open
     Title Should Be  Register

@@ -72,6 +72,6 @@ class UserService:
             raise UserInputError("Invalid password")
         
         elif password != password_confirmation:
-            raise UserInputError("Passwords don't match", password, password_confirmation)
+            raise UserInputError("Passwords don't match")
 
 user_service = UserService()
