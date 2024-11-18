@@ -3,8 +3,6 @@ from repositories.user_repository import (
     user_repository as default_user_repository
 )
 import string
-import re
-
 
 class UserInputError(Exception):
     pass
@@ -64,6 +62,9 @@ class UserService:
             if letter not in string.ascii_lowercase:
                 raise UserInputError("Invalid username")
 
+        if self._user_repository.find_by_username(username) is not None:
+            raise UserInputError("Username taken")
+
         if len(password) < 8 or len(password) > 20:
             raise UserInputError("Invalid password")
         
@@ -71,6 +72,6 @@ class UserService:
             raise UserInputError("Invalid password")
         
         elif password != password_confirmation:
-            raise UserInputError("Passwords don't match")
+            raise UserInputError("Passwords don't match", password, password_confirmation)
 
 user_service = UserService()

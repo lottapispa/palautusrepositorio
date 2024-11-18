@@ -47,7 +47,7 @@ Register With Username That Is Already In Use
     Set Password  kalle123
     Set Password Confirmation  kalle123
     Submit Credentials
-    Register Should Fail With Message  User with username kalle already exists
+    Register Should Fail With Message  Username taken
 
 *** Keywords ***
 Set Username
