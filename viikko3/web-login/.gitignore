@@ -1,7 +1,9 @@
 __pycache__/
+__pycache__
 .pytest_cache
 *.png
 *.log
+*.xml
 log.html
 report.html
 output.xml
