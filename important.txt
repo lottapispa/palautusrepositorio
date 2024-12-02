@@ -1,0 +1,2 @@
+Tee jokin tiedosto, esim. nimeltään important.txt, lisää ja committaa se
+
