@@ -1,5 +1,24 @@
 from statistics import Statistics
 
+class QueryBuilder:
+    def __init__(self):
+        self._matchers = All()
+    
+    def plays_in(self, team):
+        self._matchers = And(self._matchers, PlaysIn(team))
+        return self
+    
+    def has_at_least(self, value, attr):
+        self._matchers = And(self._matchers, HasAtLeast(value, attr))
+        return self
+    
+    def has_fewer_than(self, value, attr):
+        self._matchers = And(self._matchers, HasFewerThan(value, attr))
+        return self
+    
+    def build(self):
+        return self._matchers
+
 class And:
     def __init__(self, *matchers):
         self._matchers = matchers
