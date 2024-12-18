@@ -6,3 +6,6 @@ muutos 3
 Viikko 5 tehtävä 1
 muutos 1
 
+Viikko 7 tehtävä 1
+muutos tehty branchissa toinen
+
