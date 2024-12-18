@@ -8,3 +8,5 @@ muutos 1
 
 Viikko 7 tehtävä 1
 
+Viikko 7 tehtävä 2
+muutos tehty branchissa haara
